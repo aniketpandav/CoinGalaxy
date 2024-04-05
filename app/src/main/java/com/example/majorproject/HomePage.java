@@ -141,6 +141,7 @@ public class HomePage extends AppCompatActivity {
             });
 
             dialog.show();
+            first = false;
         }
 
         //set bottom navigation view  select item event
