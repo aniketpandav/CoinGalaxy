@@ -106,6 +106,8 @@ public class MarketFragment extends Fragment {
                         progressLoadMore.setVisibility(View.VISIBLE);
                         setRecyclerViewVolley(page, type,getContext());
                     }
+                }else if(scrollY>oldScrollY){
+
                 }
             }
         });
@@ -213,12 +215,13 @@ public class MarketFragment extends Fragment {
         AndroidNetworking.get("https://api.coingecko.com/api/v3/coins/markets?x_cg_demo_api_key=&vs_currency=&order=market_cap_desc&per_page=&page=&sparkline=false")
                 .addQueryParameter("vs_currency", type)
                 .addQueryParameter("x_cg_demo_api_key",context.getString(R.string.COINGECKO_API_KEY))
-                .addQueryParameter("per_page","100")
+                .addQueryParameter("per_page","50")
                 .addQueryParameter("page", String.valueOf(page))
                 .setTag("Market")
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONArray(new JSONArrayRequestListener() {
+                    @SuppressLint("NotifyDataSetChanged")
                     @Override
                     public void onResponse(JSONArray response) {
                         for (int i=0; i< response.length(); i++){
@@ -235,7 +238,6 @@ public class MarketFragment extends Fragment {
                                 model.setId(apiData.getString("id"));
 
                                 data.add(model);
-
                             } catch (JSONException e) {
                                 throw new RuntimeException(e);
                             }
@@ -244,6 +246,7 @@ public class MarketFragment extends Fragment {
                         adapter = new MarketAdapter(context, data);
                         progressBar.setVisibility(View.INVISIBLE);
                         progressLoadMore.setVisibility(View.INVISIBLE);
+                        adapter.notifyDataSetChanged();
                         recyclerView.setAdapter(adapter);
                     }
 
@@ -255,8 +258,9 @@ public class MarketFragment extends Fragment {
     }
 
     private void setRecyclerViewVolley(int page, String type, Context context) {
-        String apiurl = "https://api.coingecko.com/api/v3/coins/markets?x_cg_demo_api_key="+context.getString(R.string.COINGECKO_API_KEY)+"&vs_currency="+ type +"&order=market_cap_desc&per_page=100&page=" + page +"&sparkline=false";
+        String apiurl = "https://api.coingecko.com/api/v3/coins/markets?x_cg_demo_api_key="+context.getString(R.string.COINGECKO_API_KEY)+"&vs_currency="+ type +"&order=market_cap_desc&per_page=50&page=" + page +"&sparkline=false";
         StringRequest request = new StringRequest(Request.Method.GET, apiurl, new Response.Listener<String>() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(String response) {
                 try {
@@ -277,6 +281,7 @@ public class MarketFragment extends Fragment {
                     adapter = new MarketAdapter(context, data);
                     progressBar.setVisibility(View.INVISIBLE);
                     progressLoadMore.setVisibility(View.INVISIBLE);
+                    adapter.notifyDataSetChanged();
                     recyclerView.setAdapter(adapter);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);

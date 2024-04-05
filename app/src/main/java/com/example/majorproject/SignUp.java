@@ -323,7 +323,7 @@ public class SignUp extends AppCompatActivity {
                             public void onClick(View view) {
                                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                                 intent.setData(Uri.parse("mailto:")); // Use this line to set the mailto: data scheme
-                                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"developerpandav16@gmail.com"});
+                                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"coingalax01@gmail.com"});
 
                                 Intent chooserIntent = Intent.createChooser(intent, "Share email");
 
