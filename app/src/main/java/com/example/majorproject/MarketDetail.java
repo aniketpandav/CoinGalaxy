@@ -60,12 +60,11 @@ public class MarketDetail extends AppCompatActivity {
         database = client.getDatabase(getString(R.string.MONGO_DATABASE_NAME));
         collection = database.getCollection(getString(R.string.MONGO_DB_USER_COLLECTION));
 
-        name = getIntent().getStringExtra("name").toString();
-        symbol = getIntent().getStringExtra("symbol").toString();
-        type = getIntent().getStringExtra("type").toString();
-        coin_id = getIntent().getStringExtra("id").toString();
+        name = getIntent().getStringExtra("name");
+        symbol = getIntent().getStringExtra("symbol");
+        type = getIntent().getStringExtra("type");
+        coin_id = getIntent().getStringExtra("id");
         coin_purchase_date_and_time = getIntent().getStringExtra("purchase_date_and_time");
-
 
         binding.marketTitleSymbol.setText(symbol.toUpperCase());
         binding.marketTitleType.setText(type.toUpperCase());
@@ -193,6 +192,9 @@ public class MarketDetail extends AppCompatActivity {
                 }else{
                     Intent iSell = new Intent(getApplicationContext(), SellPage.class);
                     iSell.putExtra("id", coin_id);
+                    iSell.putExtra("name",name);
+                    iSell.putExtra("symbol",symbol);
+                    iSell.putExtra("type",type);
                     iSell.putExtra("previous","market");
                     startActivity(iSell);
                     finish();

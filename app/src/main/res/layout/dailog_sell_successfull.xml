@@ -31,7 +31,7 @@
             android:layout_marginEnd="20sp"
             android:fontFamily="@font/basic"
             style="@style/TEXT"
-            android:text="Congratulations! Your recent coins sale successfully"
+            android:text="Congratulations! Your recent coins sell successfully"
             android:textAlignment="center"
             android:textSize="30sp" />
 

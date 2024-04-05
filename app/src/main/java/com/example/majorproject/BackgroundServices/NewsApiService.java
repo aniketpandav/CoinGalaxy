@@ -103,8 +103,6 @@ public class NewsApiService extends Service {
                                             editor.putString("newsId", NEWS_ID);
                                             editor.apply();
 
-                                            Log.e("NewsNotifyTesting", "Okay Working.");
-
                                             String imgUrl = simpleobject.getString("imageurl");
                                             String title = simpleobject.getString("title");
                                             String body = simpleobject.getString("body");
@@ -210,8 +208,8 @@ public class NewsApiService extends Service {
                 .setSmallIcon(R.drawable.app_logo)
                 .setContentTitle(title)
                 .setContentText(body)
-                .setAutoCancel(true)
-                .setOngoing(true)
+                .setAutoCancel(false)
+                .setOngoing(false)
                 .setContentIntent(pendingIntent);
 
         if (imageBitmap != null) {

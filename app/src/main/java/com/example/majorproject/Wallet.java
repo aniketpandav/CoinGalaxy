@@ -283,7 +283,7 @@ public class Wallet extends AppCompatActivity implements PaymentResultWithDataLi
                     .append("payment_external_wallet", paymentData.getExternalWallet())
                     .append("signature", paymentData.getSignature())
                     .append("payable_mobile_no", paymentData.getUserContact())
-                    .append("payable_email", paymentData.getUserEmail())
+                    .append("payable_email", email)
                     .append("payment_date_and_time",getDateTime())
                     .append("pay_money", payableVal)
                     .append("add_balance", payableDollar)

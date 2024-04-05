@@ -167,7 +167,6 @@ public class BuyPage extends AppCompatActivity {
                     dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     dialog.getWindow().setBackgroundDrawable(null);
 
-
                     dialog.findViewById(R.id.dailogInsufficientButton).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -194,12 +193,7 @@ public class BuyPage extends AppCompatActivity {
         double coin_val = Double.valueOf(binding.txtBuyPageCryptoValue.getText().toString().replace("$", ""));
         double set_profit = 0.0;
         double stop_loss = 0.0;
-        if(!binding.etBuyPageSetProfit.getText().toString().isEmpty()){
-            set_profit = Double.parseDouble(binding.etBuyPageSetProfit.getText().toString());
-        }
-        if(!binding.etBuyPageStopLoss.getText().toString().isEmpty()){
-            stop_loss = Double.parseDouble(binding.etBuyPageStopLoss.getText().toString());
-        }
+
 
         MongoCollection<Document> collection = mongoDatabase.getCollection(getString(R.string.MONGO_DB_USER_COLLECTION));
 
@@ -212,9 +206,7 @@ public class BuyPage extends AppCompatActivity {
                 .append("coin_quantity", coin_quantity)
                 .append("purchase_date_and_time", date_time)
                 .append("purchase_value", purchase_value)
-                .append("purchase_leverage_in", leverage)
-                .append("set_profit",set_profit)
-                .append("stop_lose",stop_loss))
+                .append("purchase_leverage_in", leverage))
         );
 
         collection.updateOne(filter,updateData).getAsync(new App.Callback<UpdateResult>() {
@@ -444,8 +436,7 @@ public class BuyPage extends AppCompatActivity {
         //Get balance from realm and get to the balance variables and display it
         setBalance();
 
-        binding.etBuyPageSetProfit.setText("");
-        binding.etBuyPageStopLoss.setText("");
+
     }
 
     @Override

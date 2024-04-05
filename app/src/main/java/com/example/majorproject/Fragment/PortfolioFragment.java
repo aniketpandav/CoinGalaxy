@@ -138,8 +138,6 @@ public class PortfolioFragment extends Fragment {
                                     model.setPurchase_date_and_time(portfolioItem.getString("purchase_date_and_time"));
                                     model.setPurchase_value(portfolioItem.getDouble("purchase_value"));
                                     model.setPurchase_leverage_in(portfolioItem.getInteger("purchase_leverage_in"));
-                                    model.setSet_profit(portfolioItem.getDouble("set_profit"));
-                                    model.setStop_lose(portfolioItem.getDouble("stop_lose"));
 
                                     portfolioData.add(model);
 
