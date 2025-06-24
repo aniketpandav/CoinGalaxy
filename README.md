@@ -1,4 +1,4 @@
-![Screenshot_2024-09-28-21-46-32-830_com example majorproject](https://github.com/user-attachments/assets/c02c0877-dae2-44ab-ba30-6c6cf22b1c7a)# 🚀 CoinGalaxy – Crypto Exchange Simulator App
+# 🚀 CoinGalaxy – Crypto Exchange Simulator App
 
 CoinGalaxy is a full-featured Android crypto exchange simulator built with **Java**, **Firebase**, **MongoDB**, and **CoinGecko API**. This app allows users to simulate buying, selling, tracking, and discussing cryptocurrencies in a social environment, with features like real-time pricing, portfolio management, and community interaction.
 
