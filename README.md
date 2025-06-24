@@ -8,8 +8,7 @@ CoinGalaxy is a full-featured Android crypto exchange simulator built with **Jav
 ### 🔐 Login Screen
 
 Users securely sign in using their email and password, authenticated with Firebase.
-<img src="https://github.com/user-attachments/assets/9d603503-4b87-4fc6-9008-732fd46c790b" alt="Login Screen" width="400" height="250"/>
-
+![Screenshot_2024-03-14-04-22-06-429-edit_com example majorproject]([https://github.com/user-attachments/assets/304b01aa-0450-4467-853b-7f7956fb9092](https://github.com/user-attachments/assets/9d603503-4b87-4fc6-9008-732fd46c790b))
 
 ### 📝 Register Screen
 
